@@ -11,20 +11,58 @@ import WebKit
 final class WebViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
     
     var webView: WKWebView?
-    
+    let A = "String A"
+    let B = 10
     deinit {
-        print("deinit WebViewController")
+        print("Date \(Date.withMillisecond()) deinit WebViewController")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         webviewInit()
+        webView?.evaluateJavaScript("viewDidLoad()", completionHandler: { (result, erorr) in
+            print("Date \(Date.withMillisecond()) result ---- \(result)")
+        })
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        webView?.evaluateJavaScript("viewWillAppear()", completionHandler: { (result, erorr) in
+            print("Date \(Date.withMillisecond()) result ---- \(result)")
+        })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        webView?.evaluateJavaScript("viewDidAppear()", completionHandler: { (result, erorr) in
+            print("Date \(Date.withMillisecond()) result ---- \(result)")
+        })
+//        webView?.evaluateJavaScript("parameterTest('\(A)', '\(B)')", completionHandler: { (result, erorr) in
+//            print("Date \(Date.withMillisecond()) result ---- \(result)")
+//        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        webView?.evaluateJavaScript("viewWillDisappear()", completionHandler: { (result, erorr) in
+            print("Date \(Date.withMillisecond()) result ---- \(result)")
+        })
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: "bridge")
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        webView?.evaluateJavaScript("viewDidDisappear()", completionHandler: { (result, erorr) in
+            print("Date \(Date.withMillisecond()) result ---- \(result)")
+        })
+    }
+    
+    
     
     // receive message from wkwebview
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
