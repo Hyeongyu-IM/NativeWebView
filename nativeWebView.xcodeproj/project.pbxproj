@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C171B4F29AFA5FC007C371B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C171B4E29AFA5FC007C371B /* Utils.swift */; };
+		2C506CE629B4D5B20059072B /* WebViewPlugInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C506CE529B4D5B20059072B /* WebViewPlugInRequest.swift */; };
 		2CECD65E29AB4F830019DAA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CECD65D29AB4F830019DAA4 /* AppDelegate.swift */; };
 		2CECD66029AB4F830019DAA4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CECD65F29AB4F830019DAA4 /* SceneDelegate.swift */; };
 		2CECD66229AB4F830019DAA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CECD66129AB4F830019DAA4 /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		2C171B4E29AFA5FC007C371B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		2C506CE529B4D5B20059072B /* WebViewPlugInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewPlugInRequest.swift; sourceTree = "<group>"; };
 		2CECD65A29AB4F830019DAA4 /* nativeWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nativeWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CECD65D29AB4F830019DAA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CECD65F29AB4F830019DAA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		2C171B4D29AF6E73007C371B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2C506CE529B4D5B20059072B /* WebViewPlugInRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C506CE629B4D5B20059072B /* WebViewPlugInRequest.swift in Sources */,
 				2C171B4F29AFA5FC007C371B /* Utils.swift in Sources */,
 				2CECD66229AB4F830019DAA4 /* ViewController.swift in Sources */,
 				2CECD68E29AB53FB0019DAA4 /* RootWebView.swift in Sources */,

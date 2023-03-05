@@ -3,6 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, viewport-fit=cover">
             <script type="text/javascript">
+                //이 postMessage는 웹이 로드되면 호출됩니다
+                window.webkit.messageHandlers.htmlLoaded.postMessage('webViewLoaded')
                 function viewDidLoad() {
                     return "viewDidLoad";
                 }
@@ -34,14 +36,26 @@
                 document.querySelector('#log').append(p)
             }
             
+            //Native -> Web으로 전송된 이벤트가 들어오는 부분입니다
+            //bridge 관련 이벤트가 들어오게 됩니다
             webkit.messageHandlers.bridge.onMessage = (msg) => {
-                log('from native:' + msg)
+                log('bridge --- from native:' + msg)
+            }
+            //htmlLoaded 관련 이벤트가 들어오게 됩니다
+            webkit.messageHandlers.htmlLoaded.onMessage = (msg) => {
+                log('htmlLoaded --- from native:' + msg)
             }
             
+            //이 버튼을 클릭하게 되면 Web -> Native로 postMessage를 날리게 됩니다
+            //현재 등록된 이벤트는 command 'bridge', 'htmlLoaded'입니다
+            //여기서 log는 textContent에 보내는 메시지
             document.querySelector('button').addEventListener('click', () => {
                 log(typeof webkit.messageHandlers.bridge.postMessage)
+                log(typeof webkit.messageHandlers.htmlLoaded.postMessage)
                 
                 webkit.messageHandlers.bridge.postMessage('{"msg": "hello?","id": ' + Date.now() + '}')
+                
+                webkit.messageHandlers.htmlLoaded.postMessage('Signal Certified')
             })
             
         </script>
